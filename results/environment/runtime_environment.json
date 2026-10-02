@@ -1,0 +1,45 @@
+{
+  "host": {
+    "class": "deidentified-linux-x86_64-single-host"
+  },
+  "platform": {
+    "system": "Linux",
+    "machine": "x86_64"
+  },
+  "python": {
+    "version_family": "3.10"
+  },
+  "packages": {
+    "torch": "2.6.0+cu124",
+    "transformers": "4.57.6",
+    "numpy": "2.2.6",
+    "pandas": null
+  },
+  "cuda": {
+    "compatibility": "12.4",
+    "accelerator_class": "multi-GPU CUDA host",
+    "visible_accelerator_count": 8,
+    "accelerator_memory_class": "40 GiB per device"
+  },
+  "tools": {
+    "c_cpp_compiler": "available",
+    "java_compiler_runtime": "available",
+    "node_runtime": "available",
+    "go_toolchain": "available",
+    "cuda_device_query": "available"
+  },
+  "execution": {
+    "label": "formal-single-host-full",
+    "execution_mode": "single_host_canonical",
+    "code_snapshot_digest": "e77c05e89cbc7cbb180b1f2504cbcc3d9706ed72dcdd851beb84a45d6e238a6b",
+    "execution_environment_fingerprint": "28ee33d7e551f2adc5aed51a4417e50505dcbba9075f08d772ce69682cd27a7d"
+  },
+  "anonymization": {
+    "raw_hostnames": "excluded",
+    "kernel_build_strings": "excluded",
+    "device_bus_ids": "excluded",
+    "private_paths": "excluded",
+    "tool_timestamps": "excluded",
+    "credentials": "excluded"
+  }
+}

@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "editmark-evidence"
+version = "1.0.0"
+description = "Machine-checkable evidence contracts for code-watermark evaluation after software edits"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {file = "LICENSE"}
+authors = [
+  {name = "Haoyi Zhang", email = "hyeliozhang@gmail.com"},
+  {name = "Huaijin Ran", email = "huaijin003@e.ntu.edu.sg"},
+  {name = "Xunzhu Tang", email = "realdanieltang@gmail.com"},
+]
+keywords = ["code-watermarking", "measurement", "software-edits", "reproducibility", "claim-certificates"]
+dependencies = []
+
+[project.optional-dependencies]
+figures = ["matplotlib>=3.8"]
+test = ["pytest>=8.0", "coverage>=7.0"]
+
+[project.scripts]
+editmark-pairs = "editmark_audit.__main__:main"
+editmark-counts = "editmark_audit.aggregates:main"
+editmark-certificate = "editmark_audit.certificate:main"
+editmark-verify = "editmark_audit.verify:main"
+
+[project.urls]
+Repository = "https://github.com/Haoyi-Zhang/CodeMarkBench"
+
+[tool.setuptools.packages.find]
+include = ["editmark_audit*"]
+exclude = ["posteditbench*", "tests*", "analysis*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests/contract"]
+addopts = "-p no:typeguard"
