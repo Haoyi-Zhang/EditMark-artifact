@@ -25,6 +25,8 @@ make check
 
 This command runs the evidence-contract tests, rebuilds the machine-readable facts from included files, and checks the active manuscript source graph. It does not invoke the experimental runtime.
 
+The current Ubuntu 24.04 / Python 3.12 run passed all 203 contract test methods. Its passive inventory reconstruction recovered 1,662 released records, 1,605 configured records, 57 exclusions, five model settings, and four methods. Raw outputs are retained in `results/current/`. This run did not generate programs or rerun models or watermark detectors; it does not supply the missing joint program observations described below.
+
 To rebuild the figure and paper:
 
 ```bash
@@ -72,6 +74,8 @@ editmark-verify /tmp/editmark-certificate.json \
 ```
 
 Standalone verification checks the canonical certificate hash and re-derives every semantic field from embedded sufficient facts. With `--basis`, the verifier also checks the source-file digest and regenerates the complete certificate bundle. It does not treat a cohort fingerprint as proof that an experiment was honestly executed.
+
+The verifier is a separate entrypoint but shares the analyzer and certifier code; it is not an independent arithmetic implementation. A pair report is supplied evidence, not raw-record membership authentication, so both certificate routes retain `membership_verified=false` and `cohort_membership_authenticated=false`. Count-report re-derivation distinguishes JSON Booleans from exact integer fields, and verification outputs use the same exclusive, non-overwriting publication routine as the other reports.
 
 All files under `examples/` are explicitly synthetic software fixtures, not experimental observations.
 
